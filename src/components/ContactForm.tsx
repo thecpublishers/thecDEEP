@@ -1,0 +1,299 @@
+import { useEffect, useMemo, useRef, useState } from 'react';
+import type { FormEvent } from 'react';
+import { Button } from './Button';
+import { FormField } from './FormField';
+import { Icon } from './Icon';
+import { services } from '../content/services';
+import { site } from '../content/site';
+import { buildMailto, isPhoneLike, isValidEmail } from '../lib/forms';
+
+type ContactValues = {
+  name: string;
+  email: string;
+  phone: string;
+  interest: string;
+  message: string;
+};
+
+type ContactErrors = Partial<Record<keyof ContactValues, string>>;
+
+const initialValues: ContactValues = {
+  name: '',
+  email: '',
+  phone: '',
+  interest: '',
+  message: '',
+};
+
+const labels: Record<keyof ContactValues, string> = {
+  name: 'Full name',
+  email: 'Email address',
+  phone: 'Phone number',
+  interest: 'What can we help with?',
+  message: 'Your message',
+};
+
+type ContactFormProps = {
+  initialService?: string;
+};
+
+export function ContactForm({ initialService = '' }: ContactFormProps) {
+  const [values, setValues] = useState<ContactValues>({
+    ...initialValues,
+    interest: initialService,
+  });
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const [attempted, setAttempted] = useState(false);
+  const [preparedMailto, setPreparedMailto] = useState<string | null>(null);
+  const summaryRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!initialService) return;
+    setValues((current) => ({ ...current, interest: initialService }));
+  }, [initialService]);
+
+  const setField = (field: keyof ContactValues, value: string) => {
+    setValues((current) => ({ ...current, [field]: value }));
+    setErrors((current) => ({ ...current, [field]: undefined }));
+    setPreparedMailto(null);
+  };
+
+  const validate = (): ContactErrors => {
+    const next: ContactErrors = {};
+    if (!values.name.trim()) next.name = 'Please enter your full name.';
+    if (!values.email.trim()) next.email = 'Please enter your email address.';
+    else if (!isValidEmail(values.email))
+      next.email = 'Enter a valid email address, for example name@example.com.';
+    if (values.phone.trim() && !isPhoneLike(values.phone))
+      next.phone = 'Enter a valid phone number, or leave this field blank.';
+    if (!values.interest) next.interest = 'Please choose the area your enquiry relates to.';
+    if (!values.message.trim()) next.message = 'Please tell us a little about your project or question.';
+    else if (values.message.trim().length < 20)
+      next.message = 'Please add a little more detail (at least 20 characters).';
+    return next;
+  };
+
+  const emailBody = useMemo(
+    () =>
+      [
+        'WEBSITE ENQUIRY — THEC WRITERS & PUBLISHERS',
+        '',
+        `Name: ${values.name || 'Not provided'}`,
+        `Email: ${values.email || 'Not provided'}`,
+        `Phone: ${values.phone || 'Not provided'}`,
+        `Enquiry about: ${values.interest || 'Not selected'}`,
+        '',
+        'Message:',
+        values.message || 'Not provided',
+        '',
+        '—',
+        'Sent from the contact form on the Thec Writers & Publishers website.',
+      ].join('\n'),
+    [values],
+  );
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setAttempted(true);
+    const nextErrors = validate();
+    setErrors(nextErrors);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setPreparedMailto(null);
+      window.setTimeout(() => summaryRef.current?.focus(), 40);
+      return;
+    }
+
+    const mailto = buildMailto({
+      to: site.contact.email,
+      subject: `Website enquiry: ${values.interest} — ${values.name}`,
+      body: emailBody,
+    });
+    setPreparedMailto(mailto);
+    window.setTimeout(() => {
+      window.location.href = mailto;
+      document.getElementById('contact-form-status')?.focus();
+    }, 80);
+  };
+
+  const errorEntries = (Object.keys(labels) as Array<keyof ContactValues>)
+    .filter((field) => errors[field])
+    .map((field) => ({ field, label: labels[field], message: errors[field] }));
+
+  return (
+    <div className="contact-form-wrap">
+      <form className="contact-form" onSubmit={handleSubmit} noValidate>
+        {attempted && errorEntries.length > 0 ? (
+          <div className="form-summary" role="alert" tabIndex={-1} ref={summaryRef}>
+            <h3>Please check the form</h3>
+            <p>There are {errorEntries.length} fields that need your attention.</p>
+            <ul>
+              {errorEntries.map((entry) => (
+                <li key={entry.field}>
+                  <a href={`#contact-${entry.field}`}>
+                    {entry.label}: {entry.message}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        <div className="form-grid">
+          <FormField id="contact-name" label="Full name" required error={errors.name}>
+            <input
+              id="contact-name"
+              name="name"
+              type="text"
+              autoComplete="name"
+              required
+              value={values.name}
+              onChange={(event) => setField('name', event.target.value)}
+              aria-required="true"
+              aria-invalid={Boolean(errors.name)}
+              aria-describedby={errors.name ? 'contact-name-error' : undefined}
+            />
+          </FormField>
+
+          <FormField id="contact-email" label="Email address" required error={errors.email}>
+            <input
+              id="contact-email"
+              name="email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              required
+              value={values.email}
+              onChange={(event) => setField('email', event.target.value)}
+              aria-required="true"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? 'contact-email-error' : undefined}
+            />
+          </FormField>
+
+          <FormField
+            id="contact-phone"
+            label="Phone number"
+            error={errors.phone}
+            hint="Optional, but helpful if you would prefer a call."
+          >
+            <input
+              id="contact-phone"
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              value={values.phone}
+              onChange={(event) => setField('phone', event.target.value)}
+              aria-invalid={Boolean(errors.phone)}
+              aria-describedby={errors.phone ? 'contact-phone-error' : 'contact-phone-hint'}
+            />
+          </FormField>
+
+          <FormField
+            id="contact-interest"
+            label="What can we help with?"
+            required
+            error={errors.interest}
+          >
+            <select
+              id="contact-interest"
+              name="interest"
+              required
+              value={values.interest}
+              onChange={(event) => setField('interest', event.target.value)}
+              aria-required="true"
+              aria-invalid={Boolean(errors.interest)}
+              aria-describedby={errors.interest ? 'contact-interest-error' : undefined}
+            >
+              <option value="">Select an enquiry type</option>
+              {services.map((service) => (
+                <option value={service.title} key={service.slug}>
+                  {service.title}
+                </option>
+              ))}
+              <option value="Published books">Published books / orders</option>
+              <option value="Publishing consultation">General publishing consultation</option>
+              <option value="Careers">Careers and recruitment</option>
+              <option value="Referral programme">Referral programme</option>
+              <option value="Other">Something else</option>
+            </select>
+          </FormField>
+
+          <FormField
+            id="contact-message"
+            label="Your message"
+            required
+            error={errors.message}
+            className="form-field--full"
+            hint="Tell us about your manuscript, idea, or question. Include the stage you have reached if relevant."
+          >
+            <textarea
+              id="contact-message"
+              name="message"
+              rows={7}
+              required
+              value={values.message}
+              onChange={(event) => setField('message', event.target.value)}
+              aria-required="true"
+              aria-invalid={Boolean(errors.message)}
+              aria-describedby={
+                errors.message ? 'contact-message-error' : 'contact-message-hint'
+              }
+            />
+          </FormField>
+        </div>
+
+        <div className="contact-form__footer">
+          <div className="application-form__note">
+            <Icon name="mail" size={18} />
+            <p>
+              Submitting prepares an email in your own email app. This form does not store your
+              details on the website.
+            </p>
+          </div>
+          <Button type="submit" icon="arrow-right">
+            Prepare my enquiry
+          </Button>
+        </div>
+      </form>
+
+      {preparedMailto ? (
+        <div
+          className="form-confirmation"
+          id="contact-form-status"
+          role="status"
+          tabIndex={-1}
+          aria-live="polite"
+        >
+          <span className="form-confirmation__icon">
+            <Icon name="check" size={24} />
+          </span>
+          <div>
+            <h3>Your enquiry email is ready — not sent yet.</h3>
+            <p>
+              We have prepared a draft addressed to{' '}
+              <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>. Review and send it
+              from your email app. We have <strong>not received</strong> your message until you
+              send that email.
+            </p>
+            <div className="form-confirmation__actions">
+              <a href={preparedMailto} className="button button--secondary button--small">
+                <Icon name="mail" size={16} />
+                Open email draft
+              </a>
+            </div>
+            <p className="form-confirmation__fallback">
+              Email app not opening? Write to{' '}
+              <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> directly, or{' '}
+              <a href={site.contact.whatsapp} target="_blank" rel="noopener noreferrer">
+                message us on WhatsApp
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}

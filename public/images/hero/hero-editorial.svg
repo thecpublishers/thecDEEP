@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Editorial publishing still life placeholder</title>
+  <desc id="desc">Layered books, paper, and typography in the Thec red and near-black palette. This is designed placeholder artwork for future brand photography.</desc>
+  
+  <defs>
+    <linearGradient id="paperWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FAF6EF"/>
+      <stop offset="0.55" stop-color="#F0E7DC"/>
+      <stop offset="1" stop-color="#E8DDD0"/>
+    </linearGradient>
+    <linearGradient id="redWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E11D2A"/>
+      <stop offset="1" stop-color="#9E0F1A"/>
+    </linearGradient>
+    <linearGradient id="inkWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2A2724"/>
+      <stop offset="1" stop-color="#141312"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#1E1E1E" flood-opacity="0.18"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.045"/></feComponentTransfer>
+    </filter>
+    <pattern id="fineGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#1E1E1E" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="1400" fill="url(#paperWash)"/>
+  <rect x="0" y="0" width="1200" height="1400" fill="url(#fineGrid)" opacity="0.35"/>
+  <circle cx="970" cy="310" r="235" fill="#E11D2A" opacity="0.96"/>
+  <path d="M0 1010 C260 940 450 1110 710 1030 C930 960 1050 980 1200 920 L1200 1400 L0 1400Z" fill="#E8DDD0"/>
+  <text x="70" y="92" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" letter-spacing="4.8" fill="#1E1E1E">THEC WRITERS &amp; PUBLISHERS</text>
+  <text x="70" y="122" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" letter-spacing="2.2" fill="#626262">KEFFI · NIGERIA · EST. 2024</text>
+
+  <g transform="translate(150 270) rotate(-7 270 400)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="470" height="660" fill="url(#inkWash)"/>
+    <rect x="0" y="0" width="32" height="660" fill="#E11D2A"/>
+    <text x="70" y="100" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" letter-spacing="4" fill="#EDE4D8">A THEC PUBLICATION</text>
+    <line x1="70" y1="132" x2="400" y2="132" stroke="#EDE4D8" stroke-opacity="0.3"/>
+    <text x="68" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="88" fill="#FAF6EF">Ideas</text>
+    <text x="68" y="334" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="76" fill="#E11D2A">in</text>
+    <text x="68" y="420" font-family="Georgia, 'Times New Roman', serif" font-size="88" fill="#FAF6EF">print.</text>
+    <path d="M70 500h220" stroke="#E11D2A" stroke-width="6"/>
+    <text x="70" y="550" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" letter-spacing="1.3" fill="#C9BFB3">STORIES · KNOWLEDGE · CULTURE</text>
+    <text x="70" y="606" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" letter-spacing="2.4" fill="#8E857B">COVER STUDY / PLACEHOLDER</text>
+  </g>
+
+  <g transform="translate(650 190) rotate(9 220 330)" filter="url(#softShadow)">
+    <rect width="410" height="620" fill="#FAF6EF"/>
+    <rect x="0" y="0" width="410" height="20" fill="#E11D2A"/>
+    <text x="52" y="105" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" letter-spacing="3.5" fill="#626262">THE AFRICAN IMAGINATION</text>
+    <text x="50" y="235" font-family="Georgia, 'Times New Roman', serif" font-size="77" fill="#1E1E1E">Our</text>
+    <text x="50" y="315" font-family="Georgia, 'Times New Roman', serif" font-size="77" fill="#1E1E1E">words,</text>
+    <text x="50" y="395" font-family="Georgia, 'Times New Roman', serif" font-size="77" fill="#9E0F1A">our</text>
+    <text x="50" y="475" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="77" fill="#9E0F1A">world.</text>
+    <line x1="52" y1="525" x2="155" y2="525" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="52" y="565" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" letter-spacing="2.4" fill="#626262">COVER STUDY / PLACEHOLDER</text>
+  </g>
+
+  <g transform="translate(255 960)">
+    <g filter="url(#softShadow)">
+      <rect x="0" y="150" width="610" height="72" fill="#1E1E1E"/>
+      <rect x="0" y="150" width="26" height="72" fill="#9E0F1A"/>
+      <rect x="18" y="80" width="570" height="70" fill="#F8F1E7"/>
+      <rect x="18" y="80" width="22" height="70" fill="#E11D2A"/>
+      <rect x="36" y="18" width="520" height="62" fill="#D9CFC2"/>
+    </g>
+    <text x="58" y="196" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" letter-spacing="3.2" fill="#F8F1E7">THE PUBLISHING HOUSE FOR AFRICAN IDEAS</text>
+  </g>
+
+  <g transform="translate(852 885) rotate(-13)">
+    <rect width="260" height="356" fill="#FFFDF9" filter="url(#softShadow)"/>
+    <path d="M28 38h204M28 58h160M28 78h184M28 98h144M28 118h190M28 138h170M28 158h198M28 178h128M28 198h170" stroke="#CBBFB2" stroke-width="4"/>
+    <path d="M60 240l40 18-26 34 68-8-22 38" fill="none" stroke="#E11D2A" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(70 1240)">
+    <rect width="700" height="78" fill="#E11D2A"/>
+    <text x="34" y="34" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" letter-spacing="3" fill="#fff">DESIGNED IMAGE PLACEHOLDER</text>
+    <text x="34" y="59" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#fff" opacity="0.9">Replace with genuine Thec publishing photography.</text>
+  </g>
+</svg>

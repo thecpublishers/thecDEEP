@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 160" role="img" aria-labelledby="title">
+  <title id="title">Thec Writers &amp; Publishers logo</title>
+  <rect width="112" height="112" x="12" y="24" fill="#E11D2A"/>
+  <path d="M35 60c12-3 21 .3 34 9.6v38c-13-9.3-22-12.3-34-9.6V60Z" fill="#fff"/>
+  <path d="M101 60c-12-3-21 .3-34 9.6v38c13-9.3 22-12.3 34-9.6V60Z" fill="#fff" opacity="0.7"/>
+  <text x="150" y="83" font-family="Arial, sans-serif" font-size="50" font-weight="800" letter-spacing="-1.5" fill="#1E1E1E">THEC<tspan fill="#E11D2A">.</tspan></text>
+  <text x="152" y="113" font-family="Arial, sans-serif" font-size="16" letter-spacing="4.7" fill="#626262">WRITERS &amp; PUBLISHERS</text>
+</svg>

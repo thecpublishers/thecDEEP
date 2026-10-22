@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder cover artwork for Tyrannus</title>
+  <desc id="desc">An original typographic placeholder design. It is not the published cover and should be replaced with the approved cover artwork.</desc>
+  <rect width="800" height="1200" fill="#1E1E1E"/>
+  <rect x="0" y="815" width="800" height="385" fill="#E11D2A" opacity="0.96"/><text x="70" y="1045" font-family="'Helvetica Neue', Arial, sans-serif" font-size="20" letter-spacing="7" fill="#FAF6EF">A THEC PUBLICATION</text>
+  <g transform="translate(68 72)">
+    <rect width="32" height="32" fill="#E11D2A"/>
+    <path d="M7 11c3-.8 6 .1 9 2.5v11c-4-2.4-6-3.2-9-2.5V11Z" fill="#fff" opacity="0.95"/>
+    <path d="M25 11c-3-.8-6 .1-9 2.5v11c4-2.4 6-3.2 9-2.5V11Z" fill="#fff" opacity="0.65"/>
+  </g>
+  <text x="116" y="95" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17" letter-spacing="3.5" fill="#F6F0E6">THEC</text>
+  <text x="68" y="155" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" letter-spacing="3" fill="#F6F0E6" opacity="0.62">WRITERS &amp; PUBLISHERS</text>
+  <text x="72" y="450" font-family="Georgia, 'Times New Roman', serif" font-size="94" fill="#F6F0E6" letter-spacing="-2">TYRANNUS</text>
+  <text x="72" y="594" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" letter-spacing="3.2" fill="#F6F0E6" opacity="0.72">AUTHOR TO BE CONFIRMED</text>
+  <line x1="72" y1="1122" x2="728" y2="1122" stroke="#F6F0E6" stroke-opacity="0.3"/>
+  <text x="72" y="1153" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" letter-spacing="2.4" fill="#F6F0E6" opacity="0.62">PLACEHOLDER COVER ARTWORK</text>
+  <text x="728" y="1153" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" letter-spacing="2.4" fill="#F6F0E6" opacity="0.62">NOT FINAL</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder cover artwork for Logistics</title>
+  <desc id="desc">An original typographic placeholder design. It is not the published cover and should be replaced with the approved cover artwork.</desc>
+  <rect width="800" height="1200" fill="#F5F5F5"/>
+  <g opacity="0.85"><path d=M70 870h660 stroke=#626262 stroke-width=2 opacity=0.4 /><path d=M70 892h660 stroke=#626262 stroke-width=2 opacity=0.4 /><path d=M70 914h660 stroke=#626262 stroke-width=2 opacity=0.4 /><path d=M70 936h660 stroke=#626262 stroke-width=2 opacity=0.4 /><path d=M70 958h660 stroke=#626262 stroke-width=2 opacity=0.4 /><path d=M70 980h660 stroke=#626262 stroke-width=2 opacity=0.4 /><path d=M70 1002h660 stroke=#626262 stroke-width=2 opacity=0.4 /><path d=M70 1024h660 stroke=#626262 stroke-width=2 opacity=0.4 /></g><rect x="70" y="820" width="250" height="7" fill="#E11D2A"/>
+  <g transform="translate(68 72)">
+    <rect width="32" height="32" fill="#E11D2A"/>
+    <path d="M7 11c3-.8 6 .1 9 2.5v11c-4-2.4-6-3.2-9-2.5V11Z" fill="#fff" opacity="0.95"/>
+    <path d="M25 11c-3-.8-6 .1-9 2.5v11c4-2.4 6-3.2 9-2.5V11Z" fill="#fff" opacity="0.65"/>
+  </g>
+  <text x="116" y="95" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17" letter-spacing="3.5" fill="#1E1E1E">THEC</text>
+  <text x="68" y="155" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" letter-spacing="3" fill="#1E1E1E" opacity="0.62">WRITERS &amp; PUBLISHERS</text>
+  <text x="72" y="450" font-family="Georgia, 'Times New Roman', serif" font-size="78" fill="#1E1E1E" letter-spacing="-2">LOGISTICS</text>
+  <text x="72" y="578" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" letter-spacing="3.2" fill="#1E1E1E" opacity="0.72">AUTHOR TO BE CONFIRMED</text>
+  <line x1="72" y1="1122" x2="728" y2="1122" stroke="#1E1E1E" stroke-opacity="0.3"/>
+  <text x="72" y="1153" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" letter-spacing="2.4" fill="#1E1E1E" opacity="0.62">PLACEHOLDER COVER ARTWORK</text>
+  <text x="728" y="1153" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" letter-spacing="2.4" fill="#1E1E1E" opacity="0.62">NOT FINAL</text>
+</svg>
