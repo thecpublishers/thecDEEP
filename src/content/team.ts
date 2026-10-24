@@ -14,37 +14,34 @@ export const team: TeamMember[] = [
     id: 'paul-elijah',
     name: 'Paul Elijah',
     role: 'Founder & Chief Executive Officer',
-    image: '/images/team/paul-elijah.svg',
-    imageAlt:
-      'Portrait placeholder for Paul Elijah, Founder and CEO. A real photograph has not yet been supplied.',
+    image: '/images/team/paul-elijah.jpg',
+    imageAlt: 'Photograph of Paul Elijah, Founder and CEO of Thec Writers & Publishers.',
     summary:
       'Leads the company’s publishing vision, author relationships, and long-term direction.',
     initials: 'PE',
-    imagePlaceholder: true,
+    imagePlaceholder: false,
   },
   {
     id: 'joshua-caleb-mechi',
     name: 'Joshua Caleb Mechi',
     role: 'Human Resources',
-    image: '/images/team/joshua-caleb-mechi.svg',
-    imageAlt:
-      'Portrait placeholder for Joshua Caleb Mechi, Human Resources. A real photograph has not yet been supplied.',
+    image: '/images/team/joshua-caleb-mechi.jpg',
+    imageAlt: 'Photograph of Joshua Caleb Mechi, Human Resources at Thec Writers & Publishers.',
     summary:
       'Supports recruitment, people operations, and the working culture of the publishing team.',
     initials: 'JM',
-    imagePlaceholder: true,
+    imagePlaceholder: false,
   },
   {
     id: 'aardhan-abdull',
     name: 'Aardhan Abdull',
     role: 'Project Manager',
-    image: '/images/team/aardhan-abdull.svg',
-    imageAlt:
-      'Portrait placeholder for Aardhan Abdull, Project Manager. A real photograph has not yet been supplied.',
+    image: '/images/team/aardhan-abdull.jpg',
+    imageAlt: 'Photograph of Aardhan Abdull, Project Manager at Thec Writers & Publishers.',
     summary:
       'Coordinates publishing projects, production schedules, and communication across each stage.',
     initials: 'AA',
-    imagePlaceholder: true,
+    imagePlaceholder: false,
   },
 ];
 
