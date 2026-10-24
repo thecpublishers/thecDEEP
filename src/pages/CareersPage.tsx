@@ -78,7 +78,7 @@ export function CareersPage() {
   usePageMeta({
     title: 'Careers',
     description:
-      'Build a publishing career with Thec Writers & Publishers in Keffi, Nasarawa State. Explore six full-time onsite roles and apply by email or WhatsApp.',
+      'Build a publishing career with Thec Writers & Publishers in Keffi, Nasarawa State. Explore six full-time onsite roles and submit your application online.',
   });
 
   const [selectedPosition, setSelectedPosition] = useState('');

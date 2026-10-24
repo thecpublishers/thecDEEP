@@ -1,11 +1,12 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { Button } from './Button';
 import { FormField } from './FormField';
 import { Icon } from './Icon';
 import { experienceOptions, jobs, startOptions } from '../content/careers';
 import { site } from '../content/site';
-import { buildMailto, isPhoneLike, isValidEmail, isValidUrl } from '../lib/forms';
+import { isPhoneLike, isValidEmail, isValidUrl } from '../lib/forms';
+import { submitWeb3Form, WEB3FORMS_CAREERS_KEY } from '../lib/web3forms';
 
 type ApplicationValues = {
   position: string;
@@ -74,8 +75,8 @@ export function CareersApplicationForm({ initialPosition }: CareersApplicationFo
   const [values, setValues] = useState<ApplicationValues>(emptyValues);
   const [errors, setErrors] = useState<ApplicationErrors>({});
   const [attempted, setAttempted] = useState(false);
-  const [preparedMailto, setPreparedMailto] = useState<string | null>(null);
-  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'manual'>('idle');
+  const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [submissionError, setSubmissionError] = useState('');
   const summaryRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -88,8 +89,8 @@ export function CareersApplicationForm({ initialPosition }: CareersApplicationFo
   const setField = (field: FieldName, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
-    setPreparedMailto(null);
-    setCopyState('idle');
+    setSubmissionState('idle');
+    setSubmissionError('');
   };
 
   const validate = (): ApplicationErrors => {
@@ -111,69 +112,42 @@ export function CareersApplicationForm({ initialPosition }: CareersApplicationFo
     return next;
   };
 
-  const applicationBody = useMemo(() => {
-    return [
-      'THEC PUBLISHERS — JOB APPLICATION',
-      '',
-      `Position applied for: ${values.position || 'Not selected'}`,
-      `Full name: ${values.fullName || 'Not provided'}`,
-      `Email address: ${values.email || 'Not provided'}`,
-      `Phone number: ${values.phone || 'Not provided'}`,
-      `Current location: ${values.location || 'Not provided'}`,
-      `Years of experience: ${values.experience || 'Not provided'}`,
-      `Highest qualification: ${values.qualification || 'Not provided'}`,
-      `Portfolio/LinkedIn: ${values.portfolio || 'Not provided'}`,
-      `Available to start: ${values.start || 'Not provided'}`,
-      '',
-      'Why I want to work with THEC Publishers:',
-      values.why || 'Not provided',
-      '',
-      'Additional information / cover letter:',
-      values.coverLetter || 'Not provided',
-      '',
-      '—',
-      'Submitted via the Thec Writers & Publishers careers page.',
-      'CV or supporting documents must be attached to this email before sending.',
-    ].join('\n');
-  }, [values]);
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setAttempted(true);
     const nextErrors = validate();
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
-      setPreparedMailto(null);
+      setSubmissionState('idle');
       window.setTimeout(() => summaryRef.current?.focus(), 40);
       return;
     }
 
-    const mailto = buildMailto({
-      to: site.contact.recruitmentEmail,
-      subject: `Job application: ${values.position} — ${values.fullName}`,
-      body: applicationBody,
-    });
-    setPreparedMailto(mailto);
-    setCopyState('idle');
-    window.setTimeout(() => {
-      window.location.href = mailto;
-      document.getElementById('application-status')?.focus();
-    }, 80);
-  };
-
-  const copyApplication = async () => {
-    const text = `To: ${site.contact.recruitmentEmail}\nSubject: Job application: ${values.position} — ${values.fullName}\n\n${applicationBody}`;
+    setSubmissionState('submitting');
+    setSubmissionError('');
     try {
-      await navigator.clipboard.writeText(text);
-      setCopyState('copied');
-    } catch {
-      setCopyState('manual');
-      window.setTimeout(() => {
-        const textarea = document.getElementById('manual-copy') as HTMLTextAreaElement | null;
-        textarea?.focus();
-        textarea?.select();
-      }, 40);
+      await submitWeb3Form(WEB3FORMS_CAREERS_KEY, {
+        subject: `Job application: ${values.position} — ${values.fullName}`,
+        from_name: values.fullName,
+        name: values.fullName,
+        email: values.email,
+        replyto: values.email,
+        position: values.position,
+        phone: values.phone,
+        location: values.location,
+        experience: values.experience || 'Not provided',
+        qualification: values.qualification,
+        portfolio: values.portfolio || 'Not provided',
+        start: values.start || 'Not provided',
+        motivation: values.why,
+        cover_letter: values.coverLetter || 'Not provided',
+      });
+      setSubmissionState('success');
+      window.setTimeout(() => document.getElementById('application-status')?.focus(), 40);
+    } catch (error) {
+      setSubmissionState('error');
+      setSubmissionError(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
     }
   };
 
@@ -408,81 +382,34 @@ export function CareersApplicationForm({ initialPosition }: CareersApplicationFo
           <div className="application-form__note">
             <Icon name="mail" size={18} />
             <p>
-              Submitting prepares an email in your own email app. This website does not upload or
-              store your application. <strong>Attach your CV before sending.</strong>
+              Submit your application online. After submission, email your CV separately to{' '}
+              <a href={`mailto:${site.contact.recruitmentEmail}`}>{site.contact.recruitmentEmail}</a>{' '}
+              with the position title in the subject line. CV files are not uploaded to this form.
             </p>
           </div>
-          <Button type="submit" icon="arrow-right">
-            Prepare my application
+          <Button type="submit" icon="arrow-right" disabled={submissionState === 'submitting'}>
+            {submissionState === 'submitting' ? 'Submitting application…' : 'Submit application'}
           </Button>
         </div>
       </form>
 
-      {preparedMailto ? (
-        <div
-          className="form-confirmation"
-          id="application-status"
-          role="status"
-          tabIndex={-1}
-          aria-live="polite"
-        >
-          <span className="form-confirmation__icon">
-            <Icon name="check" size={24} />
-          </span>
+      {submissionState === 'success' ? (
+        <div className="form-confirmation" id="application-status" role="status" tabIndex={-1} aria-live="polite">
+          <span className="form-confirmation__icon"><Icon name="check" size={24} /></span>
           <div>
-            <h3>Your application email is ready — not sent yet.</h3>
-            <p>
-              We have prepared a draft addressed to{' '}
-              <a href={`mailto:${site.contact.recruitmentEmail}`}>{site.contact.recruitmentEmail}</a>
-              . Review it in your email app, attach your CV and any portfolio files, then send.
-              Your application has <strong>not</strong> been received until you send that email.
-            </p>
-            <div className="form-confirmation__actions">
-              <a href={preparedMailto} className="button button--secondary button--small">
-                <Icon name="mail" size={16} />
-                Open email draft
-              </a>
-              <button
-                type="button"
-                className="button button--ghost button--small"
-                onClick={copyApplication}
-              >
-                <Icon name="copy" size={16} />
-                Copy application details
-              </button>
-              <span className="copy-status" role="status" aria-live="polite">
-                {copyState === 'copied' ? 'Copied to clipboard.' : null}
-              </span>
-            </div>
-            {copyState === 'manual' ? (
-              <div className="manual-copy">
-                <label htmlFor="manual-copy">
-                  Copy your application details manually
-                </label>
-                <textarea
-                  id="manual-copy"
-                  readOnly
-                  rows={8}
-                  value={`To: ${site.contact.recruitmentEmail}\nSubject: Job application: ${values.position} — ${values.fullName}\n\n${applicationBody}`}
-                />
-              </div>
-            ) : null}
-            <p className="form-confirmation__fallback">
-              Email app not opening? Send your application directly to{' '}
-              <a href={`mailto:${site.contact.recruitmentEmail}`}>
-                {site.contact.recruitmentEmail}
-              </a>{' '}
-              or WhatsApp{' '}
-              <a
-                href={`https://wa.me/${site.contact.recruitmentPhoneHref.replace('+', '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {site.contact.recruitmentPhone}
-              </a>
-              .
+            <h3>Your application has been submitted.</h3>
+            <p>Thank you for applying. Please email your CV separately to{' '}
+              <a href={`mailto:${site.contact.recruitmentEmail}?subject=${encodeURIComponent(values.position)}`}>{site.contact.recruitmentEmail}</a>{' '}
+              and include <strong>{values.position}</strong> in the subject line.
             </p>
           </div>
+        </div>
+      ) : null}
+      {submissionState === 'error' ? (
+        <div className="form-summary" role="alert">
+          <h3>We could not submit your application</h3>
+          <p>{submissionError}</p>
+          <p>Please try again or email your CV and application details to <a href={`mailto:${site.contact.recruitmentEmail}`}>{site.contact.recruitmentEmail}</a>.</p>
         </div>
       ) : null}
     </div>
