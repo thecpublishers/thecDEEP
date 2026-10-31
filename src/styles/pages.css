@@ -642,6 +642,73 @@
   letter-spacing: 0.04em;
 }
 
+.imprint-section {
+  background: var(--warm);
+}
+
+.imprint-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.imprint-card {
+  padding: clamp(24px, 3vw, 34px);
+  border-top: 3px solid var(--red);
+  background: var(--white);
+}
+
+.imprint-card__number {
+  color: var(--red);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.imprint-card__focus {
+  margin-top: 18px;
+  color: var(--secondary);
+  font-size: 0.65rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.imprint-card h3 {
+  margin-top: 9px;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.25;
+}
+
+.imprint-card__intro {
+  margin-top: 14px;
+  color: var(--secondary);
+  font-size: 0.84rem;
+  line-height: 1.75;
+}
+
+.imprint-card ul {
+  display: grid;
+  gap: 13px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.imprint-card li {
+  color: var(--secondary);
+  font-size: 0.77rem;
+  line-height: 1.7;
+}
+
+.imprint-card li strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
 .mission-section {
   background: var(--warm);
 }
@@ -3637,11 +3704,6 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .team-grid .team-card:last-child {
-    grid-column: 1 / -1;
-    max-width: calc(50% - 12px);
-  }
-
   .home-blog-grid {
     grid-template-columns: 1fr;
   }
@@ -3723,7 +3785,8 @@
     width: min(100%, 640px);
   }
 
-  .mission-grid {
+  .mission-grid,
+  .imprint-grid {
     grid-template-columns: 1fr;
   }
 
