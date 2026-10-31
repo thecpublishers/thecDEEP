@@ -43,6 +43,36 @@ export const team: TeamMember[] = [
     initials: 'AA',
     imagePlaceholder: false,
   },
+  {
+    id: 'victor-oshionebo',
+    name: 'Victor Oshionebo',
+    role: 'Accountant',
+    image: '/images/team/victor-oshionebo.jpg',
+    imageAlt: 'Photograph of Victor Oshionebo, Accountant at Thec Prints & Publishing Ltd.',
+    summary: 'Supports the company’s accounting and financial record-keeping.',
+    initials: 'VO',
+    imagePlaceholder: false,
+  },
+  {
+    id: 'dominion-effiong-ubong',
+    name: 'Dominion Effiong Ubong',
+    role: 'General Manager, Etari LLC',
+    image: '/images/team/dominion-effiong-ubong.jpg',
+    imageAlt: 'Photograph of Dominion Effiong Ubong, General Manager at Etari LLC.',
+    summary: 'Provides general management leadership for Etari LLC.',
+    initials: 'DU',
+    imagePlaceholder: false,
+  },
+  {
+    id: 'nana-emmanuel',
+    name: 'Nana Emmanuel',
+    role: 'Head of Graphics',
+    image: '/images/team/nana-emmanuel.jpg',
+    imageAlt: 'Photograph of Nana Emmanuel, Head of Graphics at Thec Prints & Publishing Ltd.',
+    summary: 'Leads the company’s graphics function and visual production work.',
+    initials: 'NE',
+    imagePlaceholder: false,
+  },
 ];
 
 export const companyValues = [
