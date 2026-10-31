@@ -14,7 +14,7 @@ export function AboutPage() {
   usePageMeta({
     title: 'About Us',
     description:
-      'Thec Writers & Publishers is a Nigerian publishing house founded in 2024, committed to developing, producing, and promoting African ideas through books.',
+      'Thec Writers & Publishers is part of Thec Prints & Publishing Ltd, an integrated group operating across editorial and academic publishing, digital distribution, print-on-demand, and commercial printing.',
   });
 
   return (
@@ -102,6 +102,64 @@ export function AboutPage() {
         </div>
       </section>
 
+      <section className="section imprint-section" aria-labelledby="imprints-heading">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Our operational structure & services"
+            title="Three specialised imprints. One integrated group."
+            intro="Thec Prints & Publishing Ltd operates through three specialised imprints, each structured to serve distinct segments across publishing, print-on-demand, and commercial printing."
+            id="imprints-heading"
+          />
+          <div className="imprint-grid">
+            <article className="imprint-card">
+              <span className="imprint-card__number">01</span>
+              <p className="imprint-card__focus">Full-Service Editorial, Academic & Commercial Publishing</p>
+              <h3>Thec Writers &amp; Publishers</h3>
+              <p className="imprint-card__intro">
+                Our publishing house is dedicated to end-to-end editorial development, curriculum
+                publishing, and trade book production.
+              </p>
+              <ul>
+                <li><strong>Ghostwriting &amp; Editorial Advisory:</strong> Manuscript development, ghostwriting, structural editing, and publishing guidance for corporate leaders, scholars, and trade authors.</li>
+                <li><strong>Academic &amp; Curriculum Publishing:</strong> Bound course packs, laboratory manuals, workbooks, and departmental lecture series for tertiary schedules.</li>
+                <li><strong>Journals &amp; Research Monographs:</strong> Peer-reviewed institutional journals, research monographs, and faculty inaugural lecture booklets.</li>
+                <li><strong>Textbooks &amp; Instructional Material:</strong> Core subject textbooks and supplementary educational publications for institutions, faculty departments, and commercial distribution.</li>
+                <li><strong>Trade &amp; Professional Book Publishing:</strong> Custom publishing solutions for individual authors, corporate memoirs, and professional reference titles.</li>
+              </ul>
+            </article>
+            <article className="imprint-card">
+              <span className="imprint-card__number">02</span>
+              <p className="imprint-card__focus">Digital Marketplace &amp; Print-on-Demand Infrastructure</p>
+              <h3>Axon by Thec</h3>
+              <p className="imprint-card__intro">
+                Axon provides digital publishing, distribution, and print-on-demand infrastructure.
+              </p>
+              <ul>
+                <li><strong>Digital &amp; Global eBook Distribution:</strong> Author storefronts, digital rights management, and global eBook distribution.</li>
+                <li><strong>Dynamic Print-on-Demand:</strong> A low-friction POD network supporting zero-inventory printing and rapid fulfilment for independent authors and publishers.</li>
+                <li><strong>Institutional &amp; Library Supply Chain:</strong> Digital distribution networks and physical supply pipelines for institutional readerships, academic libraries, and academic networks.</li>
+              </ul>
+            </article>
+            <article className="imprint-card">
+              <span className="imprint-card__number">03</span>
+              <p className="imprint-card__focus">Enterprise, Institutional &amp; Print Management</p>
+              <h3>Etari LLC</h3>
+              <p className="imprint-card__intro">
+                Etari LLC is the group’s commercial print imprint, managing institutional contracts,
+                secure administrative documents, and high-volume press runs.
+              </p>
+              <ul>
+                <li><strong>Academic &amp; Administrative Publications:</strong> Prospectuses, information handbooks, university bulletins, and official institutional stationery.</li>
+                <li><strong>Secure Examination Materials:</strong> Examination question papers, answer scripts, and administrative assessment tools.</li>
+                <li><strong>Certificates &amp; Academic Transcripts:</strong> Tamper-evident transcripts, diplomas, and official institutional certificates.</li>
+                <li><strong>Event &amp; Ceremonial Publishing:</strong> Programmes of events, coronation brochures, and commemorative event publications.</li>
+                <li><strong>Commercial &amp; General Print Contracts:</strong> High-volume commercial offset printing, corporate branding assets, and tailored enterprise printing solutions.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="section mission-section" aria-labelledby="mission-heading">
         <div className="container">
           <SectionHeading
@@ -150,7 +208,7 @@ export function AboutPage() {
           <SectionHeading
             eyebrow="The team"
             title="The people behind the pages."
-            intro="Thec’s publicly listed team. Portraits are clearly labelled placeholders until approved photographs are supplied; no generated likeness is presented as a real team member."
+            intro="Meet the people contributing to the group’s publishing, management, finance, project coordination, human resources, and graphics work."
             id="team-heading"
           />
           <div className="team-grid">
@@ -161,9 +219,9 @@ export function AboutPage() {
           <div className="team-note">
             <Icon name="users" size={22} />
             <p>
-              This public list currently includes {team.length} people. Approved replacement
-              portraits and additional team profiles can be added as the company grows. For roles
-              and recruitment, visit <Link to="/careers">Careers</Link>.
+              This public team profile currently features {team.length} colleagues across Thec Prints &amp;
+              Publishing Ltd and its specialised imprints. For roles and recruitment, visit{' '}
+              <Link to="/careers">Careers</Link>.
             </p>
           </div>
         </div>
