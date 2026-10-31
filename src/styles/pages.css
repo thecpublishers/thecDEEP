@@ -3704,11 +3704,6 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .team-grid .team-card:last-child {
-    grid-column: 1 / -1;
-    max-width: calc(50% - 12px);
-  }
-
   .home-blog-grid {
     grid-template-columns: 1fr;
   }
