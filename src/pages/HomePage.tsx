@@ -241,7 +241,7 @@ export function HomePage() {
           <SectionHeading
             eyebrow="Our team"
             title="People who care about the work."
-            intro="A small, hands-on team building a publishing house around craft and accountability. Portrait placeholders are shown until approved photographs are supplied."
+            intro="Meet some of the people behind Thec’s publishing, management, finance, project coordination, human resources, and graphics work."
             id="team-heading"
             action={
               <ButtonLink to="/about#team" variant="secondary" icon="arrow-right">
