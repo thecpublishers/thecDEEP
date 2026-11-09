@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, ButtonLink } from '../components/Button';
 import { CareersApplicationForm } from '../components/CareersApplicationForm';
+import { EditorialImage } from '../components/EditorialImage';
 import { Icon } from '../components/Icon';
 import { PageHero } from '../components/PageHero';
 import { SectionHeading } from '../components/SectionHeading';
@@ -126,7 +127,7 @@ export function CareersPage() {
         }
       />
 
-      <section className="section careers-values" aria-labelledby="careers-values-heading">
+      <section className="section careers-featured-image" aria-label="Thec publishing team">\n        <div className="container">\n          <EditorialImage\n            src="/images/careers/careers-shelf.jpg"\n            alt="Publishing professionals collaborating in a modern office with bookshelves and manuscripts."\n            ratio="landscape"\n          />\n        </div>\n      </section>\n\n      <section className="section careers-values" aria-labelledby="careers-values-heading">
         <div className="container">
           <SectionHeading
             eyebrow="Life at Thec"
