@@ -12,6 +12,7 @@ export type Book = {
   slug: string;
   title: string;
   author: string | null;
+  subtitle: string | null;
   cover: string;
   coverAlt: string;
   shortDescription: string | null;
