@@ -64,7 +64,6 @@ export function ServicesPage() {
               <article className="service-overview-card" key={service.slug}>
                 <div className="service-overview-card__image">
                   <SafeImage src={service.image} alt={service.imageAlt} fallbackLabel="Service image unavailable" />
-                  <span className="image-placeholder-tag">Image placeholder</span>
                   <span className="service-overview-card__number">{service.number}</span>
                 </div>
                 <div className="service-overview-card__body">
