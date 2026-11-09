@@ -133,7 +133,7 @@ export function CareersApplicationForm({ initialPosition }: CareersApplicationFo
       '',
       '—',
       'Submitted via the Thec Writers & Publishers careers page.',
-      'CV or supporting documents must be attached to this email before sending.',
+      'CV and supporting documents should be emailed separately after submitting this online application.',
     ].join('\n');
   }, [values]);
 
