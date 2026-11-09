@@ -5,7 +5,7 @@ import { FormField } from './FormField';
 import { Icon } from './Icon';
 import { services } from '../content/services';
 import { site } from '../content/site';
-import { buildMailto, isPhoneLike, isValidEmail } from '../lib/forms';
+import { isPhoneLike, isValidEmail } from '../lib/forms';
 
 type ContactValues = {
   name: string;
@@ -44,7 +44,7 @@ export function ContactForm({ initialService = '' }: ContactFormProps) {
   });
   const [errors, setErrors] = useState<ContactErrors>({});
   const [attempted, setAttempted] = useState(false);
-  const [preparedMailto, setPreparedMailto] = useState<string | null>(null);
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const summaryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export function ContactForm({ initialService = '' }: ContactFormProps) {
   const setField = (field: keyof ContactValues, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
-    setPreparedMailto(null);
+    setSubmissionStatus('idle');
   };
 
   const validate = (): ContactErrors => {
@@ -73,47 +73,31 @@ export function ContactForm({ initialService = '' }: ContactFormProps) {
     return next;
   };
 
-  const emailBody = useMemo(
-    () =>
-      [
-        'WEBSITE ENQUIRY — THEC WRITERS & PUBLISHERS',
-        '',
-        `Name: ${values.name || 'Not provided'}`,
-        `Email: ${values.email || 'Not provided'}`,
-        `Phone: ${values.phone || 'Not provided'}`,
-        `Enquiry about: ${values.interest || 'Not selected'}`,
-        '',
-        'Message:',
-        values.message || 'Not provided',
-        '',
-        '—',
-        'Sent from the contact form on the Thec Writers & Publishers website.',
-      ].join('\n'),
-    [values],
-  );
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setAttempted(true);
     const nextErrors = validate();
     setErrors(nextErrors);
-
     if (Object.keys(nextErrors).length > 0) {
-      setPreparedMailto(null);
+      setSubmissionStatus('idle');
       window.setTimeout(() => summaryRef.current?.focus(), 40);
       return;
     }
-
-    const mailto = buildMailto({
-      to: site.contact.email,
-      subject: `Website enquiry: ${values.interest} — ${values.name}`,
-      body: emailBody,
-    });
-    setPreparedMailto(mailto);
-    window.setTimeout(() => {
-      window.location.href = mailto;
-      document.getElementById('contact-form-status')?.focus();
-    }, 80);
+    setSubmissionStatus('sending');
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      });
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error(result.message || result.error || 'Submission failed');
+      setSubmissionStatus('success');
+      window.setTimeout(() => document.getElementById('contact-form-status')?.focus(), 40);
+    } catch {
+      setSubmissionStatus('error');
+    }
   };
 
   const errorEntries = (Object.keys(labels) as Array<keyof ContactValues>)
@@ -123,6 +107,10 @@ export function ContactForm({ initialService = '' }: ContactFormProps) {
   return (
     <div className="contact-form-wrap">
       <form className="contact-form" onSubmit={handleSubmit} noValidate>
+        <input type="hidden" name="access_key" value="22bd74db-292b-4090-8ea4-020f07c04f75" />
+        <input type="hidden" name="subject" value={"Website enquiry: " + values.interest + " — " + values.name} />
+        <input type="hidden" name="from_name" value="Thec Writers & Publishers Website" />
+        <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" style={{ display: "none" }} />
         {attempted && errorEntries.length > 0 ? (
           <div className="form-summary" role="alert" tabIndex={-1} ref={summaryRef}>
             <h3>Please check the form</h3>
@@ -248,50 +236,29 @@ export function ContactForm({ initialService = '' }: ContactFormProps) {
           <div className="application-form__note">
             <Icon name="mail" size={18} />
             <p>
-              Submitting prepares an email in your own email app. This form does not store your
-              details on the website.
+              Your enquiry will be submitted directly to Thec. You do not need to open your email app.
             </p>
           </div>
-          <Button type="submit" icon="arrow-right">
-            Prepare my enquiry
+          <Button type="submit" icon="arrow-right" disabled={submissionStatus === 'sending'}>
+            {submissionStatus === 'sending' ? 'Submitting…' : 'Submit enquiry'}
           </Button>
         </div>
       </form>
 
-      {preparedMailto ? (
-        <div
-          className="form-confirmation"
-          id="contact-form-status"
-          role="status"
-          tabIndex={-1}
-          aria-live="polite"
-        >
-          <span className="form-confirmation__icon">
-            <Icon name="check" size={24} />
-          </span>
+      {submissionStatus === 'success' ? (
+        <div className="form-confirmation" id="contact-form-status" role="status" tabIndex={-1} aria-live="polite">
+          <span className="form-confirmation__icon"><Icon name="check" size={24} /></span>
           <div>
-            <h3>Your enquiry email is ready — not sent yet.</h3>
-            <p>
-              We have prepared a draft addressed to{' '}
-              <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>. Review and send it
-              from your email app. We have <strong>not received</strong> your message until you
-              send that email.
-            </p>
-            <div className="form-confirmation__actions">
-              <a href={preparedMailto} className="button button--secondary button--small">
-                <Icon name="mail" size={16} />
-                Open email draft
-              </a>
-            </div>
-            <p className="form-confirmation__fallback">
-              Email app not opening? Write to{' '}
-              <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> directly, or{' '}
-              <a href={site.contact.whatsapp} target="_blank" rel="noopener noreferrer">
-                message us on WhatsApp
-              </a>
-              .
-            </p>
+            <h3>Your enquiry has been submitted successfully.</h3>
+            <p>Thank you for contacting Thec Writers &amp; Publishers. Your message has been sent to <a href={'mailto:' + site.contact.email}>{site.contact.email}</a>. Our team will review it and respond as soon as possible.</p>
+            <p className="form-confirmation__fallback">Need a quicker conversation? <a href={site.contact.whatsapp} target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>.</p>
           </div>
+        </div>
+      ) : null}
+      {submissionStatus === 'error' ? (
+        <div className="form-summary" role="alert">
+          <h3>We could not submit your enquiry.</h3>
+          <p>Please check your connection and try again. You can also email <a href={'mailto:' + site.contact.email}>{site.contact.email}</a> directly or contact us on WhatsApp.</p>
         </div>
       ) : null}
     </div>
