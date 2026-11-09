@@ -42,7 +42,7 @@ export const team: TeamMember[] = [
       'Coordinates publishing projects, production schedules, and communication across each stage.',
     initials: 'AA',
     imagePlaceholder: false,
-  },,
+  },
   {
     id: 'dominion-effiong-ubong',
     name: 'Dominion Effiong Ubong',
