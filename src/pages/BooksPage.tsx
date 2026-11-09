@@ -12,7 +12,7 @@ export function BooksPage() {
   usePageMeta({
     title: 'Published Books',
     description:
-      'Explore the published catalogue of Thec Writers & Publishers. Catalogue records and placeholder covers are clearly labelled while verified details are completed.',
+      'Explore the published catalogue of Thec Writers & Publishers. Explore nine titles with their supplied cover artwork. Author and publication details are being verified.',
   });
 
   const [query, setQuery] = useState('');
@@ -135,7 +135,7 @@ export function BooksPage() {
           </div>
           <div className="books-info__items">
             <div>
-              <h3>Clearly marked placeholders</h3>
+              <h3>Verified catalogue information</h3>
               <p>
                 The initial catalogue contains titles for which full publication metadata has not
                 yet been supplied. We label those records rather than guessing.
