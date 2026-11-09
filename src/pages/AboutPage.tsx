@@ -149,7 +149,7 @@ export function AboutPage() {
           <SectionHeading
             eyebrow="The team"
             title="The people behind the pages."
-            intro="Thec’s publicly listed team. Portraits are clearly labelled placeholders until approved photographs are supplied; no generated likeness is presented as a real team member."
+            intro="Meet the people contributing to Thec Writers & Publishers and the work of bringing African ideas to life."
             id="team-heading"
           />
           <div className="team-grid">
@@ -160,8 +160,7 @@ export function AboutPage() {
           <div className="team-note">
             <Icon name="users" size={22} />
             <p>
-              This public list currently includes {team.length} people. Approved replacement
-              portraits and additional team profiles can be added as the company grows. For roles
+              Our team brings together people supporting the publishing work across the company. For roles
               and recruitment, visit <Link to="/careers">Careers</Link>.
             </p>
           </div>
