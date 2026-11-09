@@ -17,7 +17,7 @@ export function BookDetailPage() {
   usePageMeta({
     title: book ? book.title : 'Book not found',
     description: book
-      ? `${book.title}, a title in the Thec Writers & Publishers catalogue. Catalogue details are being confirmed.`
+      ? `${book.title}, a title in the Thec Writers & Publishers catalogue. Explore this title from Thec Writers & Publishers.`
       : 'The requested catalogue title could not be found.',
     type: 'article',
     image: book?.cover,
@@ -28,7 +28,7 @@ export function BookDetailPage() {
   const related = books.filter((item) => item.id !== book.id).slice(0, 3);
   const enquiryUrl = book.purchaseUrl ?? `mailto:${site.contact.email}`;
   const fields = [
-    { label: 'Author', value: book.author },
+    { label: 'Author', value: book.author },\n    { label: 'Subtitle', value: book.subtitle },
     { label: 'Genre', value: book.genre },
     { label: 'Publication year', value: book.publishedYear },
     { label: 'ISBN', value: book.isbn },
@@ -62,7 +62,7 @@ export function BookDetailPage() {
               <h1 id="book-title" tabIndex={-1}>
                 {book.title}
               </h1>
-              <p className="book-detail__author">{book.author ?? 'Author to be confirmed'}</p>
+              {book.subtitle ? <p className="book-detail__subtitle">{book.subtitle}</p> : null}\n              <p className="book-detail__author">{book.author}</p>
 
               <div className="catalogue-status catalogue-status--inline">
                 <span className="catalogue-status__dot" aria-hidden="true" />
