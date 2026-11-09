@@ -109,7 +109,7 @@ export function CareersPage() {
         note={
           <p>
             We are hiring for six full-time, onsite roles in Keffi, Nasarawa State. Read the
-            details, find your fit, and apply by email or WhatsApp.
+            details, find your fit, and submit your application online.
           </p>
         }
         aside={
@@ -192,8 +192,7 @@ export function CareersPage() {
               Take the first step towards joining the THEC Publishers family.
             </h2>
             <p>
-              Complete the application form and we will prepare an email for you to review and
-              send. Attach your CV and any relevant portfolio files before sending.
+              Complete the application form to submit your details directly to our recruitment inbox. Then email your CV and any relevant portfolio files separately, quoting the position you applied for.
             </p>
             <div className="apply-contact">
               <p className="apply-contact__title">Recruitment contact</p>
