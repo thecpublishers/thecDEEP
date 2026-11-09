@@ -127,7 +127,17 @@ export function CareersPage() {
         }
       />
 
-      <section className="section careers-featured-image" aria-label="Thec publishing team">\n        <div className="container">\n          <EditorialImage\n            src="/images/careers/careers-shelf.jpg"\n            alt="Publishing professionals collaborating in a modern office with bookshelves and manuscripts."\n            ratio="landscape"\n          />\n        </div>\n      </section>\n\n      <section className="section careers-values" aria-labelledby="careers-values-heading">
+      <section className="section careers-featured-image" aria-label="Thec publishing team">
+        <div className="container">
+          <EditorialImage
+            src="/images/careers/careers-shelf.jpg"
+            alt="Publishing professionals collaborating in a modern office with bookshelves and manuscripts."
+            ratio="landscape"
+          />
+        </div>
+      </section>
+
+      <section className="section careers-values" aria-labelledby="careers-values-heading">
         <div className="container">
           <SectionHeading
             eyebrow="Life at Thec"
