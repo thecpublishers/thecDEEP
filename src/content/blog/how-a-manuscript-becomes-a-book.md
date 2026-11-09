@@ -5,9 +5,9 @@ date: "2026-09-15"
 author: "Thec Editorial Team"
 category: "Publishing Guides"
 excerpt: "A clear look at the editorial and production stages that turn a finished draft into a considered, publishable book."
-image: "/images/blog/manuscript-to-book.svg"
-imageAlt: "Editorial placeholding artwork showing an open manuscript moving through marked-up pages toward a finished book."
-imageCaption: "A simple map of the editorial and production journey. Artwork is a placeholder for future publishing photography."
+image: "/images/blog/manuscript-to-book.jpg"
+imageAlt: "A manuscript, writing tools, and a finished book arranged as an editorial still life."
+imageCaption: "From manuscript to finished book."
 featured: true
 readingTime: "6 min read"
 sample: true
