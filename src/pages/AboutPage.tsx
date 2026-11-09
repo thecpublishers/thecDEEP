@@ -89,10 +89,9 @@ export function AboutPage() {
           </div>
           <div className="about-story__visual">
             <EditorialImage
-              src="/images/hero/about-studio.svg"
+              src="/images/hero/about-studio.jpg"
               alt="Designed editorial desk scene with a manuscript, pencil, and stacked books."
               ratio="landscape"
-              placeholder
             />
             <div className="about-story__caption">
               <span>Based in Keffi.</span>
