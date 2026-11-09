@@ -122,7 +122,7 @@ export function BookstorePage() {
             eyebrow="The shelves"
             title="Available to enquire."
             id="store-catalogue-heading"
-            intro="Browse the supplied cover artwork and enquire directly about availability. Author and publication details are being verified."
+            intro="Browse our published titles, see their authors and descriptions, and enquire directly about availability."
             action={
               <ButtonLink to="/books" variant="secondary" icon="arrow-right">
                 Full book catalogue
