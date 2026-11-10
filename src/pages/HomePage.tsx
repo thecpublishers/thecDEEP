@@ -78,10 +78,9 @@ export function HomePage() {
 
           <div className="hero__visual">
             <EditorialImage
-              src="/images/hero/hero-editorial.svg"
+              src="/images/hero/hero-editorial.jpg"
               alt="Designed editorial still life with books and a manuscript in Thec’s red and near-black palette."
               ratio="portrait"
-              placeholder
               priority
               className="hero__image"
             />
@@ -148,10 +147,9 @@ export function HomePage() {
         <div className="container about-editorial">
           <div className="about-editorial__visual">
             <EditorialImage
-              src="/images/hero/about-studio.svg"
+              src="/images/hero/about-studio.jpg"
               alt="Designed overhead study of a manuscript, pencil, and books on a warm editorial desk."
               ratio="landscape"
-              placeholder
             />
             <div className="about-editorial__badge">
               <span className="about-editorial__badge-number">2024</span>

@@ -12,7 +12,7 @@ export function BooksPage() {
   usePageMeta({
     title: 'Published Books',
     description:
-      'Explore the published catalogue of Thec Writers & Publishers. Catalogue records and placeholder covers are clearly labelled while verified details are completed.',
+      'Explore the published catalogue of Thec Writers & Publishers. Explore nine published titles with their cover artwork, author names and available descriptions.',
   });
 
   const [query, setQuery] = useState('');
@@ -56,7 +56,7 @@ export function BooksPage() {
             <span className="books-hero-aside__number">{String(books.length).padStart(2, '0')}</span>
             <p>titles currently listed</p>
             <p className="books-hero-aside__note">
-              Verified catalogue details will be added as they are approved.
+              Additional publication details will be added when confirmed.
             </p>
             <ButtonLink to="/bookstore" variant="secondary" size="small" icon="arrow-right">
               Visit the bookstore
@@ -135,7 +135,7 @@ export function BooksPage() {
           </div>
           <div className="books-info__items">
             <div>
-              <h3>Clearly marked placeholders</h3>
+              <h3>Verified catalogue information</h3>
               <p>
                 The initial catalogue contains titles for which full publication metadata has not
                 yet been supplied. We label those records rather than guessing.

@@ -17,7 +17,7 @@ export function BookDetailPage() {
   usePageMeta({
     title: book ? book.title : 'Book not found',
     description: book
-      ? `${book.title}, a title in the Thec Writers & Publishers catalogue. Catalogue details are being confirmed.`
+      ? `${book.title}, a title in the Thec Writers & Publishers catalogue. Explore this title from Thec Writers & Publishers.`
       : 'The requested catalogue title could not be found.',
     type: 'article',
     image: book?.cover,
@@ -29,6 +29,7 @@ export function BookDetailPage() {
   const enquiryUrl = book.purchaseUrl ?? `mailto:${site.contact.email}`;
   const fields = [
     { label: 'Author', value: book.author },
+    { label: 'Subtitle', value: book.subtitle },
     { label: 'Genre', value: book.genre },
     { label: 'Publication year', value: book.publishedYear },
     { label: 'ISBN', value: book.isbn },
@@ -53,16 +54,17 @@ export function BookDetailPage() {
               />
               <div className="book-detail__visual-note">
                 <Icon name="book" size={17} />
-                <span>Cover artwork shown is a designed placeholder.</span>
+                <span>Official cover artwork supplied for this catalogue title.</span>
               </div>
             </div>
 
             <div className="book-detail__content">
-              <p className="eyebrow">Catalogue record · Thec Publishers</p>
+              <p className="eyebrow">Published book · Thec Publishers</p>
               <h1 id="book-title" tabIndex={-1}>
                 {book.title}
               </h1>
-              <p className="book-detail__author">{book.author ?? 'Author to be confirmed'}</p>
+              {book.subtitle ? <p className="book-detail__subtitle">{book.subtitle}</p> : null}
+              <p className="book-detail__author">{book.author}</p>
 
               <div className="catalogue-status catalogue-status--inline">
                 <span className="catalogue-status__dot" aria-hidden="true" />

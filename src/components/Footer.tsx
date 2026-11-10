@@ -4,11 +4,9 @@ import { services } from '../content/services';
 import { Icon, type IconName } from './Icon';
 import { Logo } from './Logo';
 
-const socialItems: Array<{ label: string; icon: IconName; url: string | null }> = [
+const socialItems: Array<{ label: string; icon: IconName; url: string }> = [
   { label: 'Instagram', icon: 'instagram', url: site.social.instagram },
   { label: 'Facebook', icon: 'facebook', url: site.social.facebook },
-  { label: 'LinkedIn', icon: 'linkedin', url: site.social.linkedin },
-  { label: 'X', icon: 'x', url: site.social.x },
 ];
 
 export function Footer() {
@@ -26,30 +24,18 @@ export function Footer() {
               books that carry African ideas into the world.
             </p>
             <div className="footer-social" aria-label="Social media">
-              {socialItems.map((item) =>
-                item.url ? (
-                  <a
-                    key={item.label}
-                    href={item.url}
-                    className="social-icon"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${site.shortName} on ${item.label}`}
-                  >
-                    <Icon name={item.icon} size={18} />
-                  </a>
-                ) : (
-                  <span
-                    key={item.label}
-                    className="social-icon social-icon--pending"
-                    aria-label={`${item.label} profile link pending`}
-                    title={`${item.label} profile link pending`}
-                  >
-                    <Icon name={item.icon} size={18} />
-                  </span>
-                ),
-              )}
-              <span className="footer-social__note">Social profile links pending</span>
+              {socialItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.url}
+                  className="social-icon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${site.shortName} on ${item.label}`}
+                >
+                  <Icon name={item.icon} size={18} />
+                </a>
+              ))}
             </div>
           </div>
 

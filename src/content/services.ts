@@ -26,9 +26,9 @@ export const services: Service[] = [
     intro:
       'A book can begin with a memory, a framework, a body of expertise, or an idea that has not yet found its shape. Our ghostwriting service gives that material a considered structure and a clear voice.',
     icon: 'ghostwriting',
-    image: '/images/services/ghostwriting.svg',
+    image: '/images/services/ghostwriting.jpg',
     imageAlt:
-      'Editorial artwork placeholder for ghostwriting, showing layered pages and a red pencil line.',
+      'Editorial photograph showing ghostwriting, showing layered pages and a red pencil line.',
     description: [
       'Ghostwriting is a close collaboration. We begin with extended conversations about your purpose, audience, story, and the way you naturally communicate. Those decisions guide the outline, the research, and the drafting process.',
       'You remain the author of the work and the source of its perspective. Our role is to help organise the material, find the clearest expression, and carry the manuscript through successive revisions with you.',
@@ -61,9 +61,9 @@ export const services: Service[] = [
     intro:
       'Good editing is not about making every sentence sound the same. It is about helping the reader hear your meaning more clearly while preserving the qualities that make the work yours.',
     icon: 'editing',
-    image: '/images/services/editing-proofreading.svg',
+    image: '/images/services/editing-proofreading.jpg',
     imageAlt:
-      'Editorial artwork placeholder for editing and proofreading, with marked-up manuscript pages.',
+      'Editorial photograph showing editing and proofreading, with a manuscript under careful review.',
     description: [
       'We assess each manuscript on its own terms. A developmental edit considers argument, organisation, pacing, and reader experience. A copyedit focuses on grammar, usage, consistency, and style. A proofread is the final careful pass before publication.',
       'The right level of editing depends on the condition of the draft and what you intend to do next. We explain what we are recommending, provide clear notes, and keep you involved in decisions that affect your voice.',
@@ -96,9 +96,9 @@ export const services: Service[] = [
     intro:
       'Publishing involves a series of practical choices: trim size, paper, binding, print quantities, file preparation, and the route that best fits your goals. We help you understand those choices before you commit.',
     icon: 'printing',
-    image: '/images/services/printing-publishing-consultation.svg',
+    image: '/images/services/printing-consultation.jpg',
     imageAlt:
-      'Editorial artwork placeholder for printing consultation, with stacked book blocks and production marks.',
+      'Editorial photograph showing printing consultation, with printed books prepared for production.',
     description: [
       'Our printing and publishing consultation begins with the format and purpose of your book. A poetry collection, a business guide, and a family history may each call for a different physical treatment and production plan.',
       'We help you prepare and review print-ready files, understand common binding and finishing options, and ask the right questions of a printer. Where you need production coordination, we can help manage that process.',
@@ -131,9 +131,9 @@ export const services: Service[] = [
     intro:
       'Digital publishing works best when the foundations are right: clean files, accurate metadata, and a clear understanding of ISBN requirements. We help authors prepare carefully for that step.',
     icon: 'digital',
-    image: '/images/services/digital-publishing-isbn.svg',
+    image: '/images/services/digital-publishing-isbn.jpg',
     imageAlt:
-      'Editorial artwork placeholder for digital publishing, with a tablet, metadata lines, and a book shape.',
+      'Editorial photograph showing digital publishing, showing digital publishing tools and book metadata.',
     description: [
       'An ISBN identifies a specific edition of a book. Requirements differ depending on format and publishing route, so we begin by clarifying what your project needs and which agency handles the assignment.',
       'We can guide you through the application process and help organise the metadata that accompanies a published book, including title, author, format, and imprint information. ISBN assignment always remains subject to the issuing agency’s rules.',
@@ -166,9 +166,9 @@ export const services: Service[] = [
     intro:
       'A finished book still needs a route to readers. Marketing and distribution support should begin with a realistic understanding of your audience, your capacity, and the channels available to you.',
     icon: 'marketing',
-    image: '/images/services/book-marketing-distribution.svg',
+    image: '/images/services/book-marketing-distribution.jpg',
     imageAlt:
-      'Editorial artwork placeholder for book marketing, with concentric audience rings and a book at the centre.',
+      'Editorial photograph showing book marketing, showing a book prepared for its readers.',
     description: [
       'We work with authors to clarify positioning, audience, and the central message of a book. From there, we can help shape launch activity, prepare promotional copy, and plan the content that supports a release.',
       'Distribution is a separate set of decisions. We explain available routes and the requirements each one imposes, then help you prepare the information and files they typically request.',
@@ -201,9 +201,9 @@ export const services: Service[] = [
     intro:
       'Spoken material often holds the raw material of a book, an article, a case study, or an institutional record. Transcription turns it into text you can work with.',
     icon: 'transcription',
-    image: '/images/services/transcription.svg',
+    image: '/images/services/transcription.jpg',
     imageAlt:
-      'Editorial artwork placeholder for transcription, with waveform lines transforming into typed text.',
+      'Editorial photograph showing transcription, showing spoken material being transcribed into text.',
     description: [
       'We transcribe audio and video into written text for authors, researchers, and organisations. The format can be clean verbatim, edited for readability, or prepared with time references where useful.',
       'Clear audio and a short brief improve the result. Before starting, we confirm the recording format, the number of speakers, the required level of detail, and how the transcript will be used.',

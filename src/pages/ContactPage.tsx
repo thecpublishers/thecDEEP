@@ -77,8 +77,7 @@ export function ContactPage() {
             <p className="eyebrow">Send an enquiry</p>
             <h2 id="contact-form-heading">Tell us about your project.</h2>
             <p className="contact-main__intro">
-              Use this form to prepare an email to our team. We keep the process direct: review
-              your message, send it from your own email app, and we will reply from there.
+              Send your enquiry directly to our team through this form. Your message is delivered to our enquiries inbox, and we will reply using the email address you provide.
             </p>
             <ContactForm initialService={initialService} />
           </div>

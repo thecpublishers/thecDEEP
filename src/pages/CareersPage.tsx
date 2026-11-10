@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, ButtonLink } from '../components/Button';
 import { CareersApplicationForm } from '../components/CareersApplicationForm';
+import { EditorialImage } from '../components/EditorialImage';
 import { Icon } from '../components/Icon';
 import { PageHero } from '../components/PageHero';
 import { SectionHeading } from '../components/SectionHeading';
@@ -78,7 +79,7 @@ export function CareersPage() {
   usePageMeta({
     title: 'Careers',
     description:
-      'Build a publishing career with Thec Writers & Publishers in Keffi, Nasarawa State. Explore six full-time onsite roles and apply by email or WhatsApp.',
+      'Build a publishing career with Thec Writers & Publishers in Keffi, Nasarawa State. Explore six full-time onsite roles and submit your application online.',
   });
 
   const [selectedPosition, setSelectedPosition] = useState('');
@@ -108,7 +109,7 @@ export function CareersPage() {
         note={
           <p>
             We are hiring for six full-time, onsite roles in Keffi, Nasarawa State. Read the
-            details, find your fit, and apply by email or WhatsApp.
+            details, find your fit, and submit your application online.
           </p>
         }
         aside={
@@ -125,6 +126,16 @@ export function CareersPage() {
           </div>
         }
       />
+
+      <section className="section careers-featured-image" aria-label="Thec publishing team">
+        <div className="container">
+          <EditorialImage
+            src="/images/careers/careers-shelf.jpg"
+            alt="Publishing professionals collaborating in a modern office with bookshelves and manuscripts."
+            ratio="landscape"
+          />
+        </div>
+      </section>
 
       <section className="section careers-values" aria-labelledby="careers-values-heading">
         <div className="container">
@@ -181,8 +192,7 @@ export function CareersPage() {
               Take the first step towards joining the THEC Publishers family.
             </h2>
             <p>
-              Complete the application form and we will prepare an email for you to review and
-              send. Attach your CV and any relevant portfolio files before sending.
+              Complete the application form to submit your details directly to our recruitment inbox. Then email your CV and any relevant portfolio files separately, quoting the position you applied for.
             </p>
             <div className="apply-contact">
               <p className="apply-contact__title">Recruitment contact</p>

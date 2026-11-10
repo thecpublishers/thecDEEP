@@ -12,13 +12,13 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     id: 'paul-elijah',
-    name: 'Paul Elijah',
+    name: 'Paul Areneshi Elijah',
     role: 'Founder & Chief Executive Officer',
     image: '/images/team/paul-elijah.jpg',
-    imageAlt: 'Photograph of Paul Elijah, Founder and CEO of Thec Writers & Publishers.',
+    imageAlt: 'Photograph of Paul Areneshi Elijah, Founder and CEO of Thec Writers & Publishers.',
     summary:
       'Leads the company’s publishing vision, author relationships, and long-term direction.',
-    initials: 'PE',
+    initials: 'PAE',
     imagePlaceholder: false,
   },
   {
@@ -34,13 +34,43 @@ export const team: TeamMember[] = [
   },
   {
     id: 'aardhan-abdull',
-    name: 'Aardhan Abdull',
+    name: 'Abdur-rahaman Abdullah',
     role: 'Project Manager',
     image: '/images/team/aardhan-abdull.jpg',
-    imageAlt: 'Photograph of Aardhan Abdull, Project Manager at Thec Writers & Publishers.',
+    imageAlt: 'Photograph of Abdur-rahaman Abdullah, Project Manager at Thec Writers & Publishers.',
     summary:
       'Coordinates publishing projects, production schedules, and communication across each stage.',
     initials: 'AA',
+    imagePlaceholder: false,
+  },
+  {
+    id: 'dominion-effiong-ubong',
+    name: 'Dominion Effiong Ubong',
+    role: 'Team Member',
+    image: '/images/team/dominion-effiong-ubong.jpg',
+    imageAlt: 'Photograph of Dominion Effiong Ubong, a member of Thec Writers & Publishers.',
+    summary: 'Contributes to the work of Thec Writers & Publishers and our commitment to empowering African ideas.',
+    initials: 'DU',
+    imagePlaceholder: false,
+  },
+  {
+    id: 'nana-emmanuel',
+    name: 'Nana Emmanuel',
+    role: 'Team Member',
+    image: '/images/team/nana-emmanuel.jpg',
+    imageAlt: 'Photograph of Nana Emmanuel, a member of Thec Writers & Publishers.',
+    summary: 'Contributes to the work of Thec Writers & Publishers and our commitment to empowering African ideas.',
+    initials: 'NE',
+    imagePlaceholder: false,
+  },
+  {
+    id: 'victor-oshionebo',
+    name: 'Victor Oshionebo',
+    role: 'Team Member',
+    image: '/images/team/victor-oshionebo.jpg',
+    imageAlt: 'Photograph of Victor Oshionebo, a member of Thec Writers & Publishers.',
+    summary: 'Contributes to the work of Thec Writers & Publishers and our commitment to empowering African ideas.',
+    initials: 'VO',
     imagePlaceholder: false,
   },
 ];

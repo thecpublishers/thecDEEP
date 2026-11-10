@@ -68,7 +68,6 @@ export function ServiceDetailPage() {
           <div className="service-detail__main">
             <div className="service-detail__image">
               <SafeImage src={service.image} alt={service.imageAlt} fallbackLabel="Service image unavailable" />
-              <span className="image-placeholder-tag">Image placeholder</span>
             </div>
 
             <div className="prose service-detail__prose">

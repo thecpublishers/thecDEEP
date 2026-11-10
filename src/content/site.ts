@@ -3,7 +3,7 @@ export const site = {
   shortName: 'THEC Publishers',
   legalName: 'Thec Writers & Publishers',
   founded: 2024,
-  founder: 'Paul Elijah',
+  founder: 'Paul Areneshi Elijah',
   location: 'Keffi, Nasarawa State, Nigeria',
   slogans: {
     primary: 'Empowering African ideas.',
@@ -24,8 +24,8 @@ export const site = {
       'Etari LLC Building, Beside Youth Center Hall, Inside Youth Center, Keffi.',
   },
   social: {
-    instagram: null,
-    facebook: null,
+    instagram: 'https://www.instagram.com/thecwriters?psln=NHF4bXJkZXlneHR3',
+    facebook: 'https://www.facebook.com/share/1MVUQsKDNw/',
     linkedin: null,
     x: null,
   },
