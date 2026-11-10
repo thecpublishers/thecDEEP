@@ -68,8 +68,8 @@ export function PublishBookPage() {
           </div>
           <div className="publish-hero__visual">
             <EditorialImage
-              src="/images/hero/about-studio.svg"
-              alt="Designed editorial desk scene with a manuscript and stacked books."
+              src="/images/hero/about-studio.jpg"
+              alt="Editorial workspace with a manuscript and books, representing Thec’s publishing approach."
               ratio="landscape"
               placeholder
               priority
