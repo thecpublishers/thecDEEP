@@ -12,13 +12,13 @@ export type TeamMember = {
 export const team: TeamMember[] = [
   {
     id: 'paul-elijah',
-    name: 'Paul Elijah',
+    name: 'Paul Areneshi Elijah',
     role: 'Founder & Chief Executive Officer',
     image: '/images/team/paul-elijah.jpg',
-    imageAlt: 'Photograph of Paul Elijah, Founder and CEO of Thec Writers & Publishers.',
+    imageAlt: 'Photograph of Paul Areneshi Elijah, Founder and CEO of Thec Writers & Publishers.',
     summary:
       'Leads the company’s publishing vision, author relationships, and long-term direction.',
-    initials: 'PE',
+    initials: 'PAE',
     imagePlaceholder: false,
   },
   {
@@ -34,10 +34,10 @@ export const team: TeamMember[] = [
   },
   {
     id: 'aardhan-abdull',
-    name: 'Aardhan Abdull',
+    name: 'Abdur-rahaman Abdullah',
     role: 'Project Manager',
     image: '/images/team/aardhan-abdull.jpg',
-    imageAlt: 'Photograph of Aardhan Abdull, Project Manager at Thec Writers & Publishers.',
+    imageAlt: 'Photograph of Abdur-rahaman Abdullah, Project Manager at Thec Writers & Publishers.',
     summary:
       'Coordinates publishing projects, production schedules, and communication across each stage.',
     initials: 'AA',
