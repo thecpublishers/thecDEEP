@@ -22,7 +22,8 @@ export function BookCard({ book, index }: BookCardProps) {
         <h3>
           <Link to={`/books/${book.slug}`}>{book.title}</Link>
         </h3>
-        {book.subtitle ? <p className="book-card__subtitle">{book.subtitle}</p> : null}\n        <p className="book-card__author">{book.author}</p>
+        {book.subtitle ? <p className="book-card__subtitle">{book.subtitle}</p> : null}
+        <p className="book-card__author">{book.author}</p>
         <p className="book-card__description">
           {book.shortDescription ??
             'Publication details for this title are being prepared. Contact our team to enquire about availability.'}
